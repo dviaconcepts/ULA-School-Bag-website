@@ -1,0 +1,525 @@
+<title>ULA School Bag</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: dark hide-brown hero band with a stitched bag drawing, then light "paper" sections joined by saddle-stitch dividers; Uganda-flag yellow used only for stitching and calls to action. */
+:root{
+  --hide:#3B2416;      /* tanned leather, hero + footer */
+  --hide-2:#4E3020;
+  --paper:#F1EFE7;     /* page ground */
+  --card:#FBFAF6;
+  --ink:#22180F;
+  --muted:#6B5C4E;
+  --line:#D9D2C4;
+  --sun:#F4C500;       /* flag yellow, stitching */
+  --flag-red:#C8102E;
+  --on-hide:#F5EDE2;
+  --on-hide-muted:#CBB9A6;
+  --f-display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --f-body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --hide:#2A190F;--hide-2:#3A2416;--paper:#17110C;--card:#211912;--ink:#F1E9DE;--muted:#B4A390;--line:#3A2E24;--sun:#F7CF2A;--flag-red:#E5485D;--on-hide:#F5EDE2;--on-hide-muted:#C2AF9B;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --hide:#2A190F;--hide-2:#3A2416;--paper:#17110C;--card:#211912;--ink:#F1E9DE;--muted:#B4A390;--line:#3A2E24;--sun:#F7CF2A;--flag-red:#E5485D;--on-hide:#F5EDE2;--on-hide-muted:#C2AF9B;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hide)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.05}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.stitch{height:0;border-top:2px dashed var(--sun);opacity:.9}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--hide);color:var(--on-hide);border-bottom:2px dashed color-mix(in srgb,var(--sun) 55%,transparent)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:22px;letter-spacing:.02em}
+.brand .dot{width:12px;height:12px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 3px var(--hide),0 0 0 4px var(--sun)}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:15px}
+.nav ul a{text-decoration:none;color:var(--on-hide-muted)}
+.nav ul a:hover{color:var(--on-hide)}
+@media (max-width:720px){.nav ul{display:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:12px 20px;border-radius:999px;text-decoration:none;background:var(--sun);color:#23180D;border:0;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--on-hide);box-shadow:inset 0 0 0 2px var(--on-hide-muted)}
+
+/* hero */
+.hero{background:var(--hide);color:var(--on-hide);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background-image:radial-gradient(circle at 20% 30%,rgba(255,255,255,.12) 0 1px,transparent 2px),radial-gradient(circle at 70% 80%,rgba(0,0,0,.35) 0 1px,transparent 2px);background-size:7px 7px,11px 11px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-block:72px 64px;position:relative;z-index:1}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr;padding-block:48px}}
+.hero .eyebrow{color:var(--sun)}
+.hero h1{font-size:clamp(44px,7.4vw,92px);font-weight:800;letter-spacing:-.02em;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--sun);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:2%;right:2%;bottom:.04em;border-bottom:4px dashed var(--sun)}
+.hero p.lead{color:var(--on-hide-muted);font-size:clamp(17px,2vw,20px);max-width:52ch;margin-top:22px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.bagfig{min-width:0;max-width:440px;justify-self:center;width:100%}
+.bagfig svg{width:100%;height:auto;display:block}
+.tag{transform-origin:50% 0;animation:sway 5s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.flagbar{display:flex;height:8px}
+.flagbar i{flex:1}
+.flagbar i:nth-child(3n+1){background:#111}
+.flagbar i:nth-child(3n+2){background:var(--sun)}
+.flagbar i:nth-child(3n){background:var(--flag-red)}
+
+/* sections */
+section{padding-block:88px}
+@media (max-width:600px){section{padding-block:60px}}
+.sec-head{display:grid;gap:14px;max-width:720px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(32px,4.6vw,52px);font-weight:700;letter-spacing:-.015em}
+.sec-head p{color:var(--muted);font-size:18px;max-width:60ch}
+
+/* promise */
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:860px){.promise{grid-template-columns:1fr}}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;display:grid;gap:12px;align-content:start;position:relative}
+.pcard::before{content:"";position:absolute;inset:8px;border:1.5px dashed var(--line);border-radius:9px;pointer-events:none}
+.pcard .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.pcard h3{font-size:26px;font-weight:700}
+.pcard p{color:var(--muted)}
+
+/* why leather split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media (max-width:860px){.split{grid-template-columns:1fr;gap:32px}}
+.split>*{min-width:0}
+.big-quote{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.12;letter-spacing:-.01em}
+.big-quote span{color:var(--flag-red)}
+.list{display:grid;gap:0;border-top:1px solid var(--line)}
+.list div{display:grid;grid-template-columns:150px 1fr;gap:18px;padding-block:18px;border-bottom:1px solid var(--line)}
+@media (max-width:500px){.list div{grid-template-columns:1fr;gap:4px}}
+.list dt{font-family:var(--f-mono);font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding-top:3px}
+.list dd{margin:0}
+
+/* journey */
+.journey{background:var(--hide);color:var(--on-hide)}
+.journey .sec-head p,.journey .eyebrow{color:var(--on-hide-muted)}
+.track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.track::before{content:"";position:absolute;left:0;right:0;top:22px;border-top:2px dashed var(--sun)}
+.step{position:relative;padding-right:24px;display:grid;gap:10px;align-content:start}
+.step .knot{width:46px;height:46px;border-radius:50%;background:var(--hide);border:2px solid var(--sun);display:grid;place-items:center;font-family:var(--f-mono);font-size:14px;color:var(--sun);position:relative;z-index:1}
+.step h3{font-size:22px;font-weight:700;margin-top:10px}
+.step p{color:var(--on-hide-muted);font-size:15.5px}
+.step .when{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--sun)}
+.step ul{margin:4px 0 0;padding-left:18px;color:var(--on-hide-muted);font-size:14.5px;display:grid;gap:2px}
+.step.done .knot{background:var(--sun);color:#23180D}
+.step.now .knot{box-shadow:0 0 0 6px color-mix(in srgb,var(--sun) 25%,transparent)}
+.pill{justify-self:start;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;border:1px solid var(--on-hide-muted);color:var(--on-hide-muted)}
+.step.now .pill{background:var(--sun);border-color:var(--sun);color:#23180D}
+.step ul li.ok::marker{content:"\2713  ";color:var(--sun)}
+.step ul li.live{color:var(--on-hide)}
+.step ul li.live::marker{content:"\25CF  ";color:var(--sun)}
+.status{display:inline-flex;align-items:center;gap:10px;margin-top:28px;font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;color:var(--on-hide);border:1.5px dashed var(--sun);border-radius:999px;padding:8px 16px}
+.status b{width:9px;height:9px;border-radius:50%;background:var(--sun);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+@media (max-width:860px){
+  .track{grid-template-columns:1fr;gap:28px}
+  .track::before{left:22px;right:auto;top:0;bottom:0;border-top:0;border-left:2px dashed var(--sun)}
+  .step{grid-template-columns:46px 1fr;column-gap:18px;padding-right:0}
+  .step .knot{grid-row:span 3}
+  .step h3{margin-top:0}
+}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:860px){.team{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.team{grid-template-columns:1fr}}
+.person{display:grid;gap:12px;align-content:start}
+.avatar{aspect-ratio:1;max-width:100%;border-radius:14px;background:var(--hide-2);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:44px;color:var(--sun);position:relative}
+.avatar::after{content:"";position:absolute;inset:8px;border:1.5px dashed color-mix(in srgb,var(--sun) 60%,transparent);border-radius:9px}
+.person h3{font-size:20px;font-weight:700}
+.person .role{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.person p{color:var(--muted);font-size:15.5px}
+
+/* involve */
+.involve{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:860px){.involve{grid-template-columns:1fr}}
+.icard{border-top:4px solid var(--ink);padding-top:20px;display:grid;gap:10px;align-content:start}
+.icard:nth-child(2){border-color:var(--sun)}
+.icard:nth-child(3){border-color:var(--flag-red)}
+.icard h3{font-size:24px;font-weight:700}
+.icard p{color:var(--muted)}
+
+/* order */
+.order-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+@media (max-width:860px){.order-grid{grid-template-columns:1fr;gap:32px}}
+.order-grid>*{min-width:0}
+.preview-note{display:flex;gap:10px;align-items:flex-start;background:color-mix(in srgb,var(--sun) 22%,var(--card));border:1.5px dashed var(--sun);border-radius:12px;padding:14px 16px;margin-bottom:32px;font-size:15px}
+.preview-note b{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;padding-top:2px}
+.howto{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.howto li{display:grid;grid-template-columns:40px 1fr;gap:14px;padding-block:16px;border-bottom:1px solid var(--line)}
+.howto .n{width:32px;height:32px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--f-mono);font-size:13px}
+.howto h3{font-size:19px;font-weight:700;margin-bottom:2px}
+.howto p{color:var(--muted);font-size:15.5px}
+.pay-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;padding:4px 10px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
+.form-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;position:relative;display:grid;gap:18px}
+.form-card::before{content:"";position:absolute;inset:8px;border:1.5px dashed var(--line);border-radius:11px;pointer-events:none}
+.form-card>*{position:relative}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.price-row h3{font-size:24px;font-weight:800}
+.price{font-family:var(--f-mono);font-size:15px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.fields{grid-template-columns:1fr}}
+.field{display:grid;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:14px;font-weight:600}
+.field label small{font-weight:400;color:var(--muted)}
+.field input,.field select,.field textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;width:100%}
+.field textarea{min-height:76px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px color-mix(in srgb,var(--sun) 45%,transparent)}
+.field .err{color:var(--flag-red);font-size:13px}
+.qty{display:flex;align-items:center;gap:0;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper)}
+.qty button{font:inherit;font-size:20px;width:46px;height:46px;border:0;background:transparent;color:var(--ink);cursor:pointer}
+.qty button:hover{background:var(--line)}
+.qty input{border:0!important;box-shadow:none!important;text-align:center;font-variant-numeric:tabular-nums;border-radius:0;background:transparent}
+.total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--line)}
+.total span{color:var(--muted);font-size:15px}
+.total strong{font-family:var(--f-display);font-size:26px;font-variant-numeric:tabular-nums}
+.btn.dark{background:var(--ink);color:var(--paper);justify-content:center;font-size:16px;padding:14px 22px;cursor:pointer;width:100%}
+.btn.wa{background:#1F8A4C;color:#fff;justify-content:center;width:100%;font-size:16px;padding:14px 22px}
+.sent{display:grid;gap:12px;background:color-mix(in srgb,#1F8A4C 12%,var(--card));border:1px solid color-mix(in srgb,#1F8A4C 45%,var(--line));border-radius:12px;padding:16px}
+.sent pre{margin:0;white-space:pre-wrap;font-family:var(--f-mono);font-size:13px;background:var(--paper);border-radius:8px;padding:12px;max-height:220px;overflow:auto}
+.linkish{font:inherit;font-size:14px;background:none;border:0;padding:0;color:var(--ink);text-decoration:underline;cursor:pointer;justify-self:start}
+
+footer{background:var(--hide);color:var(--on-hide-muted);font-size:15px}
+.foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;padding-block:44px}
+.foot .brand{color:var(--on-hide);font-size:30px}
+.foot small{display:block;margin-top:8px;font-size:14px}
+</style>
+
+<header>
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>ULA</a>
+    <ul>
+      <li><a href="#campaign">The campaign</a></li>
+      <li><a href="#leather">Why leather</a></li>
+      <li><a href="#journey">Our journey</a></li>
+      <li><a href="#team">Team</a></li>
+      <li id="nav-order" hidden><a href="#order">Order a bag</a></li>
+    </ul>
+    <a class="btn" href="#involved">Get involved</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Uganda Lasting School Bag · Funded by the Government of Uganda</p>
+        <h1>One good bag for <em>every</em> Ugandan child.</h1>
+        <p class="lead">ULA is a national campaign to design and make a strong leather school bag that families can afford, so that every young Ugandan can carry their books to school with pride, year after year.</p>
+        <div class="ctas">
+          <a class="btn" href="#campaign">See the campaign</a>
+          <a class="btn ghost" href="#involved">Partner with us</a>
+        </div>
+        <p class="status"><b aria-hidden="true"></b>Now: benchmarking leather production in China</p>
+      </div>
+      <figure class="bagfig" aria-label="Illustration of a stitched leather satchel with a ULA hang tag">
+        <svg viewBox="0 0 400 420" role="img">
+          <!-- strap -->
+          <path d="M120 150 C120 40 280 40 280 150" fill="none" stroke="#2A170C" stroke-width="22" stroke-linecap="round"/>
+          <path d="M120 150 C120 40 280 40 280 150" fill="none" stroke="#9A6034" stroke-width="16" stroke-linecap="round"/>
+          <path d="M120 150 C120 40 280 40 280 150" fill="none" stroke="#F4C500" stroke-width="1.6" stroke-dasharray="6 6"/>
+          <!-- body -->
+          <rect x="50" y="140" width="300" height="240" rx="26" fill="#A8673A"/>
+          <rect x="62" y="152" width="276" height="216" rx="18" fill="none" stroke="#F4C500" stroke-width="2" stroke-dasharray="7 6"/>
+          <!-- pocket -->
+          <rect x="105" y="270" width="190" height="84" rx="14" fill="#8E5530"/>
+          <rect x="114" y="279" width="172" height="66" rx="9" fill="none" stroke="#F4C500" stroke-width="1.6" stroke-dasharray="6 5"/>
+          <!-- flap -->
+          <path d="M50 166 Q50 140 76 140 H324 Q350 140 350 166 V236 Q350 262 300 262 H100 Q50 262 50 236 Z" fill="#7A4524"/>
+          <path d="M64 168 Q64 154 80 154 H320 Q336 154 336 168 V232 Q336 248 300 248 H100 Q64 248 64 232 Z" fill="none" stroke="#F4C500" stroke-width="2" stroke-dasharray="7 6"/>
+          <!-- buckle -->
+          <rect x="182" y="226" width="36" height="58" rx="6" fill="#5C311A"/>
+          <rect x="176" y="250" width="48" height="30" rx="6" fill="none" stroke="#E9D9A6" stroke-width="5"/>
+          <!-- flag stripe -->
+          <rect x="74" y="364" width="18" height="10" fill="#111"/><rect x="92" y="364" width="18" height="10" fill="#F4C500"/><rect x="110" y="364" width="18" height="10" fill="#C8102E"/>
+          <!-- hang tag -->
+          <g class="tag" style="transform-box:fill-box;transform-origin:50% 0">
+            <path d="M298 142 L318 186" stroke="#E9D9A6" stroke-width="2"/>
+            <g transform="translate(290 182) rotate(-8)">
+              <rect width="70" height="96" rx="8" fill="#F5EDE2"/>
+              <circle cx="35" cy="12" r="5" fill="#A8673A"/>
+              <text x="35" y="48" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="22" fill="#3B2416">ULA</text>
+              <text x="35" y="66" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#6B5C4E">MADE IN</text>
+              <text x="35" y="78" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#6B5C4E">UGANDA</text>
+            </g>
+          </g>
+        </svg>
+      </figure>
+    </div>
+    <div class="flagbar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+
+  <section id="campaign">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">The campaign</p>
+        <h2>A school bag built for Ugandan roads, rain and years of use.</h2>
+        <p>Too many children carry their books in thin bags that tear within a term. ULA brings government funding, local design talent and local leather together to make one bag that lasts, at a price every family can manage. The bag is being designed, tested and made in Uganda by SASA College of Industrial Design.</p>
+      </div>
+      <div class="promise">
+        <article class="pcard">
+          <span class="k">Promise 01 · Lasting</span>
+          <h3>Made to last</h3>
+          <p>Real leather and reinforced stitching, designed to survive long walks, rainy seasons and being handed down to a younger sibling.</p>
+        </article>
+        <article class="pcard">
+          <span class="k">Promise 02 · Affordable</span>
+          <h3>Priced for families</h3>
+          <p>Public funding covers the design and development work, so the finished bag can reach parents at a fair, affordable price.</p>
+        </article>
+        <article class="pcard">
+          <span class="k">Promise 03 · For all</span>
+          <h3>For every child</h3>
+          <p>Designed for pupils across Uganda, in town and village, from the first year of primary school onward.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="stitch"></div></div>
+
+  <section id="leather">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Why leather</p>
+        <p class="big-quote" style="margin-top:16px">Uganda raises the hides. <span>Ugandan hands</span> should turn them into something our children use every day.</p>
+      </div>
+      <dl class="list">
+        <div><dt>Strength</dt><dd>Leather resists tearing and scuffing far longer than cheap synthetic fabric, so one bag can serve for several school years.</dd></div>
+        <div><dt>Repairable</dt><dd>A torn seam or loose strap can be fixed by any local cobbler or leather worker, instead of the bag being thrown away.</dd></div>
+        <div><dt>Local value</dt><dd>Using Ugandan leather keeps more of the value chain at home, supporting tanners, artisans and makers.</dd></div>
+        <div><dt>Design</dt><dd>Shaped by a market study and user preference testing, so the bag fits how Ugandan pupils really carry their load.</dd></div>
+        <div><dt>Skills</dt><dd>Local artisans are trained in leather cutting and production, with know-how drawn from benchmarking visits to China, Kenya and Ghana.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="journey" class="journey">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Our journey</p>
+        <h2 style="color:var(--on-hide)">Four milestones, one lasting bag.</h2>
+        <p>ULA began in June 2026 and is moving step by step, from first sketches to bags on sale for families. Each milestone is done properly before the next begins.</p>
+      </div>
+      <div class="track">
+        <div class="step done"><span class="knot">M1</span><span class="when">Jun – Sep 2026</span><h3>Product development</h3><p>Designing the bag around what pupils and parents need.</p><ul><li>Market study</li><li>Prototype design &amp; sample materials</li><li>User preference testing</li><li>Artisan training</li></ul><span class="pill">Done</span></div>
+        <div class="step now"><span class="knot">M2</span><span class="when">Oct 2026 – now</span><h3>Workshop setup</h3><p>Building a workshop that can make bags at scale.</p><ul><li class="ok">Furniture &amp; fittings</li><li class="live">Benchmarking in China, Kenya &amp; Ghana</li><li>Equipment, machines &amp; tools</li><li>Further artisan training</li></ul><span class="pill">In progress</span></div>
+        <div class="step"><span class="knot">M3</span><span class="when">After workshop setup</span><h3>Pilot production</h3><p>Making the first 100 ULA bags.</p><ul><li>Custom leather production</li><li>Cutting dies &amp; production processes</li><li>Raw materials &amp; accessories</li><li>Packaging &amp; licensing</li></ul><span class="pill">Up next</span></div>
+        <div class="step"><span class="knot">M4</span><span class="when">After the pilot</span><h3>Trial sales</h3><p>Bringing ULA to families for the first time.</p><ul><li>School drives</li><li>Supermarkets &amp; stores</li><li>Advertising &amp; branding</li></ul><span class="pill">Planned</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">The team</p>
+        <h2>The people stitching ULA together.</h2>
+      </div>
+      <div class="team">
+        <div class="person"><div class="avatar" aria-hidden="true">MM</div><span class="role">Venture Leader</span><h3>Miriam Muwanga</h3><p>Leads the vision of the campaign and its partnerships.</p></div>
+        <div class="person"><div class="avatar" aria-hidden="true">GE</div><span class="role">Project Manager</span><h3>Gita Elijah</h3><p>Keeps the milestones, timelines and deliverables on track.</p></div>
+        <div class="person"><div class="avatar" aria-hidden="true">KE</div><span class="role">Operations</span><h3>Kisakye Edward</h3><p>Runs procurement, logistics and day-to-day operations.</p></div>
+        <div class="person"><div class="avatar" aria-hidden="true">₵</div><span class="role">Finance</span><h3>Project Accountant</h3><p>Manages the budget and accounts for every shilling of public funds.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="stitch"></div></div>
+
+  <section id="order" hidden>
+    <div class="wrap">
+      <div class="preview-note" id="preview-note" hidden>
+        <b>Preview</b>
+        <span>Visitors can't see this section yet. Turn it on when trial sales begin by setting <code>open: true</code> in the order settings at the bottom of this file.</span>
+      </div>
+      <div class="sec-head">
+        <p class="eyebrow">Order a bag</p>
+        <h2>Get a ULA bag for your child.</h2>
+        <p>Fill in your order and send it to us on WhatsApp. Our team will confirm the total and delivery, then you pay by mobile money.</p>
+      </div>
+      <div class="order-grid">
+        <ol class="howto">
+          <li><span class="n">1</span><div><h3>Send your order</h3><p>Fill in the form and tap the WhatsApp button. Your order details are written into the message for you.</p></div></li>
+          <li><span class="n">2</span><div><h3>We confirm</h3><p>A ULA team member replies to confirm availability, the total and how you will receive the bag.</p></div></li>
+          <li><span class="n">3</span><div><h3>Pay by mobile money</h3><p>Pay only after we confirm. Use the official ULA merchant code we send you, and keep your transaction ID.</p><div class="pay-chips"><span class="chip">MTN MoMo</span><span class="chip">Airtel Money</span></div></div></li>
+          <li><span class="n">4</span><div><h3>Collect or receive</h3><p>Pick up your bag, receive it at your child's school during a school drive, or get it delivered.</p></div></li>
+        </ol>
+
+        <form class="form-card" id="order-form" novalidate>
+          <div class="price-row"><h3>ULA School Bag</h3><span class="price" id="unit-price">Price confirmed on WhatsApp</span></div>
+          <div class="fields">
+            <div class="field"><label for="o-name">Your name</label><input id="o-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="o-phone">Phone number</label><input id="o-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="07XX XXX XXX" required></div>
+            <div class="field"><label for="o-qty">Number of bags</label>
+              <div class="qty"><button type="button" id="qty-minus" aria-label="One fewer bag">−</button><input id="o-qty" name="qty" type="number" min="1" max="50" value="1" inputmode="numeric"><button type="button" id="qty-plus" aria-label="One more bag">+</button></div>
+            </div>
+            <div class="field"><label for="o-get">How you'll get it</label>
+              <select id="o-get" name="get">
+                <option>Pick up</option>
+                <option>At my child's school</option>
+                <option>Delivery</option>
+              </select>
+            </div>
+            <div class="field"><label for="o-district">District / town</label><input id="o-district" name="district" placeholder="e.g. Wakiso" required></div>
+            <div class="field"><label for="o-school">School <small>(optional)</small></label><input id="o-school" name="school"></div>
+            <div class="field full"><label for="o-note">Anything else? <small>(optional)</small></label><textarea id="o-note" name="note" placeholder="Child's class, delivery directions, or questions"></textarea></div>
+          </div>
+          <p class="err" id="form-err" role="alert" hidden style="color:var(--flag-red);font-size:14px"></p>
+          <div class="total"><span>Estimated total</span><strong id="o-total">—</strong></div>
+          <button class="btn dark" type="submit">Prepare my WhatsApp order</button>
+          <div class="sent" id="sent" hidden>
+            <p><strong>Your order is ready.</strong> Tap the button to open WhatsApp and press send.</p>
+            <a class="btn wa" id="wa-link" href="#" target="_blank" rel="noopener">Send order on WhatsApp</a>
+            <pre id="wa-text"></pre>
+            <button class="linkish" type="button" id="copy-btn">Copy order text</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="involved">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Get involved</p>
+        <h2>Help put a ULA bag on every back.</h2>
+        <p>Whether you run a school, raise a child or make things with your hands, there is a place for you in this campaign.</p>
+      </div>
+      <div class="involve">
+        <div class="icard"><h3>Schools</h3><p>Host a ULA school drive when trial sales begin, so your pupils can see and buy the bag at school.</p></div>
+        <div class="icard"><h3>Supermarkets &amp; stores</h3><p>Stock ULA bags for the new school year. We are lining up retail partners for trial sales.</p></div>
+        <div class="icard"><h3>Partners &amp; makers</h3><p>Tanneries, leather workers, NGOs and sponsors can join us in making and distributing ULA bags.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="flagbar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="wrap foot">
+    <div>
+      <span class="brand"><span class="dot" aria-hidden="true"></span>ULA</span>
+      <small>Uganda Lasting School Bag · A Government of Uganda funded campaign with SASA College of Industrial Design</small>
+    </div>
+    <small>© 2026 ULA · For God and My Country</small>
+  </div>
+</footer>
+
+<script>
+/* ================= ORDER SETTINGS =================
+   open:      false = the order section is hidden from visitors.
+              true  = it shows for everyone (do this when trial sales start).
+   whatsapp:  the ULA sales WhatsApp number in international format,
+              digits only, e.g. "256772123456".
+   price:     price of one bag in UGX, e.g. 85000. Leave null until confirmed.
+   To preview while hidden, open the site with #order-preview at the end of the link.
+==================================================== */
+const ORDER = {
+  open: false,
+  whatsapp: "",
+  price: null
+};
+
+(function(){
+  const section = document.getElementById("order");
+  const navItem = document.getElementById("nav-order");
+  const note = document.getElementById("preview-note");
+  const fmt = n => "UGX " + Math.round(n).toLocaleString("en-US");
+
+  function applyVisibility(){
+    const preview = location.hash === "#order-preview";
+    const show = ORDER.open || preview;
+    section.hidden = !show;
+    navItem.hidden = !ORDER.open;
+    note.hidden = !(preview && !ORDER.open);
+    if (preview && show) section.scrollIntoView({block:"start"});
+  }
+  applyVisibility();
+  window.addEventListener("hashchange", applyVisibility);
+
+  const qty = document.getElementById("o-qty");
+  const total = document.getElementById("o-total");
+  const unit = document.getElementById("unit-price");
+  if (ORDER.price) unit.textContent = fmt(ORDER.price) + " per bag";
+
+  function clampQty(){
+    let v = parseInt(qty.value, 10);
+    if (!Number.isFinite(v) || v < 1) v = 1;
+    if (v > 50) v = 50;
+    qty.value = v;
+    return v;
+  }
+  function updateTotal(){
+    const q = clampQty();
+    total.textContent = ORDER.price ? fmt(q * ORDER.price) : "Confirmed on WhatsApp";
+  }
+  document.getElementById("qty-minus").addEventListener("click", () => { qty.value = clampQty() - 1; updateTotal(); });
+  document.getElementById("qty-plus").addEventListener("click", () => { qty.value = clampQty() + 1; updateTotal(); });
+  qty.addEventListener("change", updateTotal);
+  updateTotal();
+
+  const form = document.getElementById("order-form");
+  const err = document.getElementById("form-err");
+  const sent = document.getElementById("sent");
+  const waLink = document.getElementById("wa-link");
+  const waText = document.getElementById("wa-text");
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const v = id => document.getElementById(id).value.trim();
+    const missing = [];
+    if (!v("o-name")) missing.push("your name");
+    if (v("o-phone").replace(/\D/g,"").length < 9) missing.push("a phone number we can call");
+    if (!v("o-district")) missing.push("your district or town");
+    if (missing.length){
+      err.textContent = "Please add " + missing.join(", ") + ".";
+      err.hidden = false; sent.hidden = true;
+      return;
+    }
+    err.hidden = true;
+    const q = clampQty();
+    const lines = [
+      "Hello ULA, I would like to order:",
+      "",
+      "Bags: " + q,
+      ORDER.price ? "Estimated total: " + fmt(q * ORDER.price) : null,
+      "Name: " + v("o-name"),
+      "Phone: " + v("o-phone"),
+      "District/town: " + v("o-district"),
+      v("o-school") ? "School: " + v("o-school") : null,
+      "How I'll get it: " + v("o-get"),
+      v("o-note") ? "Note: " + v("o-note") : null
+    ].filter(x => x !== null);
+    const text = lines.join("\n");
+    waText.textContent = text;
+    const num = (ORDER.whatsapp || "").replace(/\D/g,"");
+    waLink.href = "https://wa.me/" + num + "?text=" + encodeURIComponent(text);
+    sent.hidden = false;
+    waLink.focus();
+  });
+
+  document.getElementById("copy-btn").addEventListener("click", () => {
+    const t = waText.textContent;
+    const done = () => { document.getElementById("copy-btn").textContent = "Copied"; };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(done, () => selectText());
+    } else selectText();
+    function selectText(){ const r = document.createRange(); r.selectNodeContents(waText); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  });
+})();
+</script>
